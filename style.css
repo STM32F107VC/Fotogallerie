@@ -1,0 +1,16 @@
+.mainImgContainer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(219, 41, 41);
+    width: auto;
+    /* flex-direction: ; */
+}
+
+.imgBox {
+    width: auto;
+}
+   
+    
+.imgBox > img {
+    border-radius: 10px;
+}
