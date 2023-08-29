@@ -1,16 +1,26 @@
-.mainImgContainer {
+body {
+    margin: 0;
+    display: flex;
+}
+
+
+#mainImgContainer {
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(219, 41, 41);
-    width: auto;
-    /* flex-direction: ; */
+    background-color: rgb(0, 0, 0);
 }
 
 .imgBox {
-    width: auto;
+    display: flex;
+    height: 250px;
+    /* width: auto; */
+    flex-grow: 1;
+    margin: 6px;
 }
    
-    
-.imgBox > img {
-    border-radius: 10px;
+.imgBox img {
+    height: 100%;
+    flex-grow: 1;
+    /* border-radius: 16px; */
+    object-fit: cover;
 }
