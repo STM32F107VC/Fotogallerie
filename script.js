@@ -37,6 +37,7 @@ function templateRender(i) {
     return /*html*/`
     <div class="popUpImg">
         <img class="img back" onclick="load()" src="img/icons8-back-50.png" alt="back">
+        <img class="img delete" onclick="deleteImg(i)" src="img/delete_FILL0_wght400_GRAD0_opsz48.png" alt="delete">
         <img id="previousPicture" onclick="previousImg(${i})" class="img" src="img/icons8-back-26.png" alt="previous back">
         <img src="${images[i]}">
         <img id="nextPicture" onclick="nextImg(${i})" class="img"src="img/icons8-forward-26.png" alt="next picture">
@@ -53,7 +54,6 @@ function previousImg(i) {
 
         if (i == 0) {
             removeArrowLeft('leftArrow');
-            // templateRender();
         }
     }
 }
@@ -67,13 +67,13 @@ function nextImg(i) {
 
         if (i == 18) {
             removeArrowRight('rightArrow');
-            // templateRender();
         }
     }
 }
 
 // Hide left arrow if first picture is reached
 function removeArrowLeft(leftArrow) {
+    console.log('Du bist in die removeArrowLeft() Funktion eingetreten');
     let arrowBehindPrevious = document.getElementById('previousPicture');
     if (leftArrow) {
         arrowBehindPrevious.classList.add('hideArrow');
@@ -82,8 +82,16 @@ function removeArrowLeft(leftArrow) {
 
 // Hide right arrow if last picture is reached
 function removeArrowRight(rightArrow) {
+    console.log('Du bist in die removeArrowRight() Funktion eingetreten');
     let arrowBehindNext = document.getElementById('nextPicture');
     if (rightArrow) {
         arrowBehindNext.classList.add('hideArrow');
     }
+}
+
+// Delete an img
+function deleteImg(i) {
+    console.log('Du bist in die deleteImg() Funktion eingetreten');
+    images.splice(i, 1);
+    templateRender();
 }
