@@ -6,9 +6,10 @@ let images = ['img/1.webp.jpg', 'img/2.webp.jpg', 'img/3.webp.jpg', 'img/4.webp.
 
 
 function load() {
-    let setImages = document.getElementById('mainImgContainer');
+    let setImages = document.getElementById('ImgContainer');
     setImages.innerHTML = '';// Clear containe
-    setImages.classList.remove('addBackgroundColor');
+    setImages.classList.add('mainImgContainer');
+    setImages.classList.remove('increaseImg');
 
     for (let i = 0; i < images.length; i++) {
         const img = images[i];
@@ -22,22 +23,36 @@ function load() {
 }
 
 
+// When clicked on img, show only clicke img
 function openImg(i) {
     console.log('Eingetreten in die openImg() Funktion');
-    let setImages = document.getElementById('mainImgContainer');
+    let setImages = document.getElementById('ImgContainer');
     setImages.innerHTML = ''; // Clear container
-    setImages.classList.add('addBackgroundColor');
+    setImages.classList.remove('mainImgContainer');
+    setImages.classList.add('increaseImg');
+    setImages.innerHTML = templateRender(i);
+}
 
-    setImages.innerHTML = /*html*/`
-        <div id="mainImgContainer">
-            <img class="img" onclick="load()" src="img/icons8-back-50.png" alt="back">
-            
-            
-            <div class="popUpImg">
-                <img src="${images[i]}">    
-                <img class="img" src="img/icons8-back-26.png" alt="previous back">
-            <img class="img"src="img/icons8-forward-26.png" alt="next picture">
-            </div>
-        </div>
-    `;
+// Render the popUpImg div into the ImgContainer div
+function templateRender(i) {
+    return /*html*/`
+    <div class="popUpImg">
+        <img class="img back" onclick="load()" src="img/icons8-back-50.png" alt="back">
+        <img  onclick="previousImg(${i})" class="img" src="img/icons8-back-26.png" alt="previous back">
+        <img src="${images[i]}">
+        <img onclick="nextImg(${i})" class="img"src="img/icons8-forward-26.png" alt="next picture">
+    </div>
+`;
+}
+
+// Go to previous picture
+function previousImg(i) {
+    i -= 1;
+    openImg(i);
+}
+
+// Go to next picture
+function nextImg(i) {
+    i += 1;
+    openImg(i);
 }
