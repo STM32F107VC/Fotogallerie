@@ -93,6 +93,5 @@ function removeArrowRight(rightArrow) {
 function deleteImg(i) {
     console.log('Du bist in die deleteImg() Funktion eingetreten');
     images.splice(i, 1);
-    i -= 1;
-    openImg(i);
+    previousImg(i);
 }
