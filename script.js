@@ -5,6 +5,7 @@ let images = ['img/1.webp.jpg', 'img/2.webp.jpg', 'img/3.webp.jpg', 'img/4.webp.
 // variables
 
 
+// Load all pictures out of array
 function load() {
     let setImages = document.getElementById('ImgContainer');
     setImages.innerHTML = '';// Clear containe
@@ -13,19 +14,17 @@ function load() {
 
     for (let i = 0; i < images.length; i++) {
         const img = images[i];
-
         setImages.innerHTML += /*html*/`
-            <div onclick="openImg(${i})" class="imgBox">
-                <img src="${img}">
-            </div>
+                <div onclick="openImg(${i})" class="imgBox">
+                    <img src="${img}">
+                </div>
         `;
     }
 }
 
-
 // When clicked on img, show only clicke img
 function openImg(i) {
-    console.log('Eingetreten in die openImg() Funktion');
+    console.log('Du bist in die openImg() Funktion eingetreten');
     let setImages = document.getElementById('ImgContainer');
     setImages.innerHTML = ''; // Clear container
     setImages.classList.remove('mainImgContainer');
@@ -47,12 +46,23 @@ function templateRender(i) {
 
 // Go to previous picture
 function previousImg(i) {
-    i -= 1;
-    openImg(i);
+    console.log('Du bist in die previousImg() Funktion eingetreten');
+    if (!(i < 1)) { // Check that i isn't smaller than array length
+        i -= 1;
+        openImg(i);
+    } else {
+        templateRender();
+    }
 }
 
 // Go to next picture
 function nextImg(i) {
-    i += 1;
-    openImg(i);
+    console.log('Du bist in die nextImg() Funktion eingetreten');
+    if (!(i > 17)) { // Check that i isn't bigger than array length 
+        i += 1;
+        openImg(i);
+    } else {
+        console.log('value range isnt correct!');
+        templateRender();
+    }
 }

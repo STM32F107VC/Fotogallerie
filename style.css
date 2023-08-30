@@ -61,3 +61,50 @@ body {
     padding: 8px;
     margin: 0 !important; 
 }
+
+
+@media screen and (max-width: 800px) {
+    .imgBox {
+        display: flex;
+        height: 200px;
+        flex-grow: 1;
+        margin: 2px;
+    }
+
+}
+
+@media screen and (max-width: 630px) {
+    .imgBox {
+        display: flex;
+        height: 150px;
+        flex-grow: 1;
+        margin: 2px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .imgBox {
+        display: flex;
+        height: 125px;
+        flex-grow: 1;
+        margin: 2px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .imgBox {
+        display: flex;
+        height: 110px;
+        flex-grow: 1;
+        margin: 2px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .imgBox {
+        display: flex;
+        height: 100px;
+        flex-grow: 1;
+        margin: 2px;
+    }
+}
