@@ -2,7 +2,7 @@ body {
     margin: 0;
 }
 
-
+/* Wrap content that doesen't fit in page screen width */
 .mainImgContainer {
     display: flex;
     flex-wrap: wrap;
@@ -10,15 +10,17 @@ body {
     padding: 6px;
 }
 
+/* Make div grow to full page with */
 .imgBox {
+    position: relative;
     display: flex;
     height: 250px;
     flex-grow: 1;
     margin: 2px;
 }
-   
+
+/* Make the img grow to full sie of imgBox div */
 .imgBox img {
-    height: 100%;
     flex-grow: 1;
     object-fit: cover;
     border-radius: 12px;
@@ -46,9 +48,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
+/* Set hight of back and delete icon */
 .popUpImg img.delete, img.back {
     width: 50px;
     height: 50px;
@@ -96,6 +98,7 @@ body {
         flex-grow: 1;
         margin: 2px;
     }
+
 
 }
 

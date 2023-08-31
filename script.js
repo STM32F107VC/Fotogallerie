@@ -9,15 +9,15 @@ let i;
 function load() {
     let setImages = document.getElementById('ImgContainer');
     setImages.innerHTML = '';// Clear containe
-    setImages.classList.add('mainImgContainer');
-    setImages.classList.remove('increaseImg');
+    setImages.classList.add('mainImgContainer'); // add class to ImgContainer
+    setImages.classList.remove('increaseImg'); // remove class from ImgContainer
 
     for (i = 0; i < images.length; i++) {
         const img = images[i];
         setImages.innerHTML += /*html*/`
-                <div onclick="openImg(${i})" class="imgBox">
-                    <img src="${img}">
-                </div>
+            <div onclick="openImg(${i})" class="imgBox">
+                <img src="${img}">
+            </div>
         `;
     }
 }
@@ -38,9 +38,9 @@ function templateRender(i) {
     <div class="popUpImg">
         <img class="img back" onclick="load()" src="img/icons8-back-50.png" alt="back">
         <img class="img delete" onclick="deleteImg(${i})" src="img/delete_FILL0_wght400_GRAD0_opsz48.png" alt="delete">
-        <img id="previousPicture" onclick="previousImg(${i})" class="img" src="img/icons8-back-26.png" alt="previous back">
+        <img id="previousPicture" onclick="previousImg(${i})" class="img" src="img/icons8-back-26.png" alt="previous image">
         <img src="${images[i]}">
-        <img id="nextPicture" onclick="nextImg(${i})" class="img"src="img/icons8-forward-26.png" alt="next picture">
+        <img id="nextPicture" onclick="nextImg(${i})" class="img"src="img/icons8-forward-26.png" alt="next image">
     </div>
 `;
 }
@@ -48,24 +48,29 @@ function templateRender(i) {
 // Go to previous picture
 function previousImg(i) {
     console.log('Du bist in die previousImg() Funktion eingetreten');
-    if (!(i < 1)) { // Check that i isn't smaller than array length
+    if ((i >= images.length)) { // Check that i isn't smaller than array length
         i -= 1;
         openImg(i);
 
-        if (i == 0) {
+        if (i == images.length + 1) {
             removeArrowLeft('leftArrow');
         }
+    }
+
+    if (i) {
+        i -= 1;
+        openImg(i);
     }
 }
 
 // Go to next picture
 function nextImg(i) {
     console.log('Du bist in die nextImg() Funktion eingetreten');
-    if (!(i > 17)) { // Check that i isn't bigger than array length 
+    if (i < images.length - 1) { // Check that i isn't bigger than array length 
         i += 1;
         openImg(i);
 
-        if (i == 18) {
+        if (i === images.length - 1) {
             removeArrowRight('rightArrow');
         }
     }
@@ -92,6 +97,16 @@ function removeArrowRight(rightArrow) {
 // Delete an img
 function deleteImg(i) {
     console.log('Du bist in die deleteImg() Funktion eingetreten');
-    images.splice(i, 1);
-    previousImg(i);
+    if (!(i == 0)) {
+        images.splice(i, 1);
+        previousImg(i);
+    } else {
+        // load();
+        openImg();
+        console.log('Es wurden alle Bilder gelöscht');
+    }
+
+
 }
+
+// Letztes Bild lässt sich nicht löschen delete icon in load() rendern
