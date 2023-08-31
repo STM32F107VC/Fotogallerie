@@ -48,18 +48,13 @@ function templateRender(i) {
 // Go to previous picture
 function previousImg(i) {
     console.log('Du bist in die previousImg() Funktion eingetreten');
-    if ((i >= images.length)) { // Check that i isn't smaller than array length
+    if (!(i <= (images.length - images.length))) { // Check that i isn't smaller than array length
         i -= 1;
         openImg(i);
 
-        if (i == images.length + 1) {
+        if (i === (images.length - images.length)) {
             removeArrowLeft('leftArrow');
         }
-    }
-
-    if (i) {
-        i -= 1;
-        openImg(i);
     }
 }
 
@@ -97,16 +92,16 @@ function removeArrowRight(rightArrow) {
 // Delete an img
 function deleteImg(i) {
     console.log('Du bist in die deleteImg() Funktion eingetreten');
-    if (!(i == 0)) {
+    if (!(i < 0)) {
         images.splice(i, 1);
         previousImg(i);
+        if (i == 0) {// If the first picture ist deleted, render new
+            console.log('Letztes Bild gelöscht, neu rendern');
+            load();
+        }
     } else {
         // load();
         openImg();
         console.log('Es wurden alle Bilder gelöscht');
     }
-
-
 }
-
-// Letztes Bild lässt sich nicht löschen delete icon in load() rendern
