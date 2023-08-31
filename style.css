@@ -45,6 +45,7 @@ body {
 .popUpImg {
     height: 100vh;
     width: 100%;
+    padding: 0 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,8 +57,6 @@ body {
     height: 50px;
 }
 
-
-
 /* Change background color if a img gets clicked */
 .increaseImg {
     background-color: black;
@@ -68,8 +67,7 @@ body {
     max-width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 12px !important;
-    padding: 0 24px;
+    border-radius: 12px;
  }
 
 /* Position the back arrow */
@@ -96,56 +94,43 @@ body {
     opacity: 0;
 }
 
-
-@media screen and (max-width: 800px) {
-    .imgBox {
-        display: flex;
-        height: 200px;
-        flex-grow: 1;
-        margin: 2px;
-    }
-
-    /* .popUpImg {
+/* Set media queries for different screen sizes */
+@media screen and (max-width: 850px) {
+    .popUpImg {
         height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
-    } */
+    }
+}
+    
+@media screen and (max-width: 800px) {
+    .imgBox {
+        height: 200px;
+    }
 }
 
 @media screen and (max-width: 630px) {
     .imgBox {
-        display: flex;
         height: 150px;
-        flex-grow: 1;
-        margin: 2px;
     }
 }
 
 @media screen and (max-width: 490px) {
     .imgBox {
-        display: flex;
         height: 125px;
-        flex-grow: 1;
-        margin: 2px;
     }
 }
 
 @media screen and (max-width: 420px) {
     .imgBox {
-        display: flex;
         height: 110px;
-        flex-grow: 1;
-        margin: 2px;
     }
 }
 
 @media screen and (max-width: 350px) {
     .imgBox {
-        display: flex;
         height: 100px;
-        flex-grow: 1;
-        margin: 2px;
     }
 }
