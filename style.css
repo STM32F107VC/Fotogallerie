@@ -63,7 +63,7 @@ body {
 }
 
 /* Resize picture with changing screensize */
-.minimizeImg {
+#mainImg {
     max-width: 100%;
     height: auto;
     object-fit: cover;
