@@ -11,6 +11,7 @@ let images = ['img/1.webp.jpg', 'img/2.webp.jpg', 'img/3.webp.jpg', 'img/4.webp.
 // global variables 
 let i;
 
+
 // Load all pictures out of array
 function load() {
     let setImages = document.getElementById('ImgContainer');
@@ -36,7 +37,23 @@ function openImg(i) {
     setImages.classList.remove('mainImgContainer');
     setImages.classList.add('increaseImg');
     setImages.innerHTML = templateRender(i);
+    // checkKeyEvent(i);
 }
+
+// function checkKeyEvent(i) {
+//     document.addEventListener("keydown", (e) => {
+//         e = e || window.event;
+//         if (openImg(i)) {
+//             if (e.key === "ArrowLeft") {
+//                 console.log("left arrow pressed");
+//                 previousImg(i);
+//             } else if (e.key === "ArrowRight") {
+//                 console.log("right arrow pressed");
+//                 nextImg(i);
+//             }
+//         }
+//     });
+// }
 
 // Render the popUpImg div into the ImgContainer div
 function templateRender(i) {
@@ -44,11 +61,13 @@ function templateRender(i) {
     <div class="popUpImg">
         <img class="img back" onclick="load()" src="img/icons8-back-50.png" alt="back">
         <img class="img delete" onclick="deleteImg(${i})" src="img/delete_FILL0_wght400_GRAD0_opsz48.png" alt="delete">
-        <img id="previousPicture" onclick="previousImg(${i})" class="img" src="img/icons8-back-26.png" alt="previous image">
-        <img id="mainImg" src="${images[i]}">
-        <img id="nextPicture" onclick="nextImg(${i})" class="img"src="img/icons8-forward-26.png" alt="next image">
+        <div class="popUpImg-Subdiv">
+            <img id="previousPicture" onclick="previousImg(${i})" class="img" src="img/icons8-back-26.png" alt="previous image">
+            <img id="mainImg" src="${images[i]}">
+            <img id="nextPicture" onclick="nextImg(${i})" class="img"src="img/icons8-forward-26.png" alt="next image">
+        </div>
     </div>
-`;
+    `;
 }
 
 // Go to previous picture

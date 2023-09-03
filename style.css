@@ -43,18 +43,13 @@ body {
 
 /* If img gets clicked, add these new attributes */
 .popUpImg {
+    position: relative;
     height: 100vh;
     width: 100%;
     padding: 0 32px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-}
-
-/* Set hight of back and delete icon */
-.popUpImg img.delete, img.back {
-    width: 50px;
-    height: 50px;
 }
 
 /* Change background color if a img gets clicked */
@@ -70,13 +65,22 @@ body {
     border-radius: 12px;
  }
 
+ /*  */
+ .popUpImg-Subdiv {
+    max-width: 100%;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+ }
+
 /* Position the back arrow */
 .back {
     position: absolute;
     top: 20px;
     left: 20px;
     padding: 8px;
-    margin: 0 !important; 
+    margin: 0; 
 }
 
 /* Position the delete icon */
@@ -85,7 +89,7 @@ body {
     top: 20px;
     right: 20px;
     padding: 8px;
-    margin: 0 !important;
+    margin: 0;
 }
 
 /* Hide the arrows if first or last img is reached */
@@ -94,17 +98,7 @@ body {
     opacity: 0;
 }
 
-/* Set media queries for different screen sizes */
-@media screen and (max-width: 850px) {
-    .popUpImg {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-}
-    
+/* Set media queries for different screen sizes */    
 @media screen and (max-width: 800px) {
     .imgBox {
         height: 200px;
